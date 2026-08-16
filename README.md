@@ -48,6 +48,8 @@ The system is designed around a core principle: every answer must be traceable b
 - HTML5 / CSS3 (custom design system)
 - Jinja2 templating
 
+## Folder Structure
+```
 LegalLens
 │
 ├── main.py                       # FastAPI application entry point
@@ -79,6 +81,7 @@ LegalLens
 ├── Dockerfile
 ├── .dockerignore
 └── requirements.txt
+```
 
 ## ⚙️ Getting Started
 
