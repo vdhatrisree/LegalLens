@@ -48,31 +48,36 @@ The system is designed around a core principle: every answer must be traceable b
 - HTML5 / CSS3 (custom design system)
 - Jinja2 templating
 
-## 📂 Project Structure
 LegalLens
 │
-├── main.py # FastAPI application entry point
-├── app.py # Core ML pipeline (extraction, classification, RAG)
-├── evaluate.py # Automated evaluation harness
-├── legallens_eval_set.json # Ground-truth benchmark question set
+├── main.py                       # FastAPI application entry point
+├── app.py                        # Core ML pipeline (extraction, classification, RAG)
+├── evaluate.py                   # Automated evaluation harness
+├── legallens_eval_set.json       # Ground-truth benchmark question set
+├── eval_results.json             # Latest evaluation run output
 │
 ├── templates/
-│ ├── index.html # Upload page
-│ ├── result.html # Analysis results
-│ ├── search.html # Semantic clause search
-│ └── chat.html # Document chatbot
+│   ├── index.html                # Upload page
+│   ├── result.html               # Analysis results
+│   ├── search.html               # Semantic clause search
+│   └── chat.html                 # Document chatbot
 │
 ├── static/
-│ └── style.css # Design system
+│   └── style.css                 # Design system
 │
 ├── models/
-│ ├── clause_classifier_final.pkl
-│ ├── risk_model.pkl / bert_risk_model/
-│ └── flan_t5_rag/ # Fine-tuned generation model
+│   ├── clause_classifier_final.pkl
+│   ├── tfidf_vectorizer_final.pkl
+│   ├── risk_model.pkl
+│   ├── risk_vectorizer.pkl
+│   ├── bert_risk_model/
+│   ├── flan_t5_rag/               # Base RAG generation model
+│   └── flan_t5_qa_finetuned_v2/   # Fine-tuned QA generation model
 │
-├── uploads/ # Uploaded documents
-├── reports/ # Generated risk reports
+├── uploads/                       # Uploaded documents
+├── reports/                       # Generated risk reports
 ├── Dockerfile
+├── .dockerignore
 └── requirements.txt
 
 ## ⚙️ Getting Started
