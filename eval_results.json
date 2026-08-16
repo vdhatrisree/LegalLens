@@ -1,0 +1,236 @@
+﻿[
+  {
+    "id": 1,
+    "document": "rental",
+    "question": "What is the monthly rent?",
+    "type": "factual",
+    "model_answer": "Rs. 18,000",
+    "expected": "Rs. 18,000",
+    "correct": true
+  },
+  {
+    "id": 2,
+    "document": "rental",
+    "question": "How much is the security deposit?",
+    "type": "factual",
+    "model_answer": "Rs. 36,000",
+    "expected": "Rs. 36,000",
+    "correct": true
+  },
+  {
+    "id": 3,
+    "document": "rental",
+    "question": "When is rent due each month?",
+    "type": "factual",
+    "model_answer": "5th of each month",
+    "expected": "5th of each month",
+    "correct": true
+  },
+  {
+    "id": 4,
+    "document": "rental",
+    "question": "Does the contract specify a percentage or fixed amount for rent increases?",
+    "type": "gap",
+    "model_answer": "no specific amount or percentage is stated (Note: Mentions a financial term but no specific amount or percentage is stated.)",
+    "gap_flagged_by_detector": true,
+    "gap_correctly_surfaced": true
+  },
+  {
+    "id": 5,
+    "document": "rental",
+    "question": "Is there a specific late fee amount for overdue rent?",
+    "type": "gap",
+    "model_answer": "no specific amount or percentage is stated (Note: Mentions a financial term but no specific amount or percentage is stated.)",
+    "gap_flagged_by_detector": true,
+    "gap_correctly_surfaced": true
+  },
+  {
+    "id": 6,
+    "document": "rental",
+    "question": "What is the exact numeric notice period required for termination?",
+    "type": "gap",
+    "model_answer": "1 September 2026",
+    "gap_flagged_by_detector": true,
+    "gap_correctly_surfaced": false
+  },
+  {
+    "id": 7,
+    "document": "rental",
+    "question": "What is the purchase price of the property?",
+    "type": "not_mentioned",
+    "model_answer": "This is not mentioned in the document.",
+    "expected": "This is not mentioned in the document.",
+    "correct": true
+  },
+  {
+    "id": 8,
+    "document": "rental",
+    "question": "Does this agreement mention a warranty period?",
+    "type": "not_mentioned",
+    "model_answer": "This is not mentioned in the document.",
+    "expected": "This is not mentioned in the document.",
+    "correct": true
+  },
+  {
+    "id": 9,
+    "document": "rental",
+    "question": "Who are the two parties to this agreement?",
+    "type": "factual",
+    "model_answer": "Rajesh Kumar and Priya Sharma (Note: Mentions a time-sensitive term but no specific duration is stated.)",
+    "expected": "Rajesh Kumar (Landlord) and Priya Sharma (Tenant)",
+    "correct": true
+  },
+  {
+    "id": 10,
+    "document": "rental",
+    "question": "Who is responsible for major structural repairs?",
+    "type": "factual",
+    "model_answer": "Landlord.",
+    "expected": "Landlord",
+    "correct": true
+  },
+  {
+    "id": 11,
+    "document": "car",
+    "question": "What is the total purchase price of the vehicle?",
+    "type": "factual",
+    "model_answer": "8,50,000, inclusive of applicable taxes",
+    "expected": "Rs. 8,50,000",
+    "correct": true
+  },
+  {
+    "id": 12,
+    "document": "car",
+    "question": "How much is the booking deposit?",
+    "type": "factual",
+    "model_answer": "Rs. 50,000",
+    "expected": "Rs. 50,000",
+    "correct": true
+  },
+  {
+    "id": 13,
+    "document": "car",
+    "question": "Is there a specific penalty amount for late delivery?",
+    "type": "gap",
+    "model_answer": "no specific amount or percentage is stated (Note: Mentions a financial term but no specific amount or percentage is stated.)",
+    "gap_flagged_by_detector": true,
+    "gap_correctly_surfaced": true
+  },
+  {
+    "id": 14,
+    "document": "car",
+    "question": "Is there a fixed refund percentage if the buyer cancels?",
+    "type": "gap",
+    "model_answer": "No. This is not mentioned in the document. (Note: Mentions a financial term but no specific amount or percentage is stated.)",
+    "gap_flagged_by_detector": true,
+    "gap_correctly_surfaced": true
+  },
+  {
+    "id": 15,
+    "document": "car",
+    "question": "What is the monthly rent for this vehicle?",
+    "type": "not_mentioned",
+    "model_answer": "This is not mentioned in the document.",
+    "expected": "This is not mentioned in the document.",
+    "correct": true
+  },
+  {
+    "id": 16,
+    "document": "car",
+    "question": "Does this agreement mention a non-compete clause?",
+    "type": "not_mentioned",
+    "model_answer": "This is not mentioned in the document.",
+    "expected": "This is not mentioned in the document.",
+    "correct": true
+  },
+  {
+    "id": 17,
+    "document": "car",
+    "question": "What vehicle model is being purchased?",
+    "type": "factual",
+    "model_answer": "Hyundai i20 (Model 2026)",
+    "expected": "Hyundai i20 (Model 2026)",
+    "correct": true
+  },
+  {
+    "id": 18,
+    "document": "car",
+    "question": "What happens to the trade-in vehicle's value?",
+    "type": "factual",
+    "model_answer": "adjusted against the purchase price (Note: Mentions a financial term but no specific amount or percentage is stated.)",
+    "expected": "Assessed by Dealer and adjusted against purchase price",
+    "correct": true
+  },
+  {
+    "id": 19,
+    "document": "employment",
+    "question": "What is the annual salary?",
+    "type": "factual",
+    "model_answer": "9,00,000",
+    "expected": "Rs. 9,00,000",
+    "correct": true
+  },
+  {
+    "id": 20,
+    "document": "employment",
+    "question": "What is the employee's job title?",
+    "type": "factual",
+    "model_answer": "Software Engineer. (",
+    "expected": "Software Engineer",
+    "correct": true
+  },
+  {
+    "id": 21,
+    "document": "employment",
+    "question": "Is there a specific number of days for probation notice?",
+    "type": "gap",
+    "model_answer": "no specific duration is stated (Note: Mentions a time-sensitive term but no specific duration is stated.)",
+    "gap_flagged_by_detector": true,
+    "gap_correctly_surfaced": true
+  },
+  {
+    "id": 22,
+    "document": "employment",
+    "question": "Is there a specific geographic area defined for the non-compete?",
+    "type": "gap",
+    "model_answer": "no specific duration is stated. (Note: Mentions a time-sensitive term but no specific duration is stated.)",
+    "gap_flagged_by_detector": true,
+    "gap_correctly_surfaced": true
+  },
+  {
+    "id": 23,
+    "document": "employment",
+    "question": "What is the security deposit for this agreement?",
+    "type": "not_mentioned",
+    "model_answer": "This is not mentioned in the document.",
+    "expected": "This is not mentioned in the document.",
+    "correct": true
+  },
+  {
+    "id": 24,
+    "document": "employment",
+    "question": "Does this contract mention a vehicle warranty?",
+    "type": "not_mentioned",
+    "model_answer": "This is not mentioned in the document.",
+    "expected": "This is not mentioned in the document.",
+    "correct": true
+  },
+  {
+    "id": 25,
+    "document": "employment",
+    "question": "Who owns work product created during employment?",
+    "type": "factual",
+    "model_answer": "Company. Ltd. (\"Company\") and Arjun Nair (\"Employee\")",
+    "expected": "The Company",
+    "correct": true
+  },
+  {
+    "id": 26,
+    "document": "employment",
+    "question": "Can the company terminate immediately for misconduct?",
+    "type": "factual",
+    "model_answer": "Yes. Company may terminate immediately without notice for serious misconduct.",
+    "expected": "Yes, without notice for serious misconduct",
+    "correct": true
+  }
+]

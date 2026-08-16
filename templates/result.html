@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LegalLens - Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="page">
+        <div class="letterhead">
+            <div class="wordmark">LegalLens</div>
+            <div class="tagline">Analysis Result</div>
+        </div>
+
+        <div class="card risk-gauge">
+            <svg class="risk-ring" viewBox="0 0 120 120">
+                <defs>
+                    <linearGradient id="riskGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#F472B6" />
+                        <stop offset="100%" stop-color="#8B5CF6" />
+                    </linearGradient>
+                </defs>
+                <circle class="track" cx="60" cy="60" r="50" />
+                <circle class="value" cx="60" cy="60" r="50"
+                    stroke-dasharray="314"
+                    stroke-dashoffset="{{ 314 - (314 * gap_score / 100) }}" />
+                    <text x="60" y="66" text-anchor="middle" class="risk-number">{{ gap_score }}%</text>
+            </svg>
+            <div>
+                <div class="risk-label">Gaps &amp; Ambiguities</div>
+                <p style="margin: 6px 0 0; font-size: 0.9rem;">Based on {{ clause_data|length }} clauses reviewed, {{ gaps|length }} contain a missing detail or vague term.</p>
+                <div class="btn-row">
+                    <a href="/chat" class="btn">
+                        <svg class="sparkle" viewBox="0 0 24 24"><path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path></svg>
+                        <span>Chat with this document</span>
+                    </a>
+                    <a href="/download/{{ report_filename }}" class="btn" style="background: linear-gradient(135deg, #0F766E, #2DD4BF);">
+                        <svg class="sparkle" viewBox="0 0 24 24"><path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path></svg>
+                        <span>Download Report</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <h2>Risky Clauses</h2>
+        <ul class="redline-list">
+            {% for clause in risky_clauses %}
+            <li>{{ clause }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Gaps &amp; Ambiguities</h2>
+        {% if gaps %}
+        <ul class="redline-list" style="border-left-color: #FBBF24; background: rgba(251,191,36,0.12);">
+            {% for gap in gaps %}
+            <li><strong>{{ gap.issue }}</strong><br>{{ gap.clause }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No obvious gaps detected.</p>
+        {% endif %}
+
+        <h2>All Clauses</h2>
+        <ol class="clause-list">
+            {% for clause, category in clause_data %}
+            <li><span class="tag">{{ category }}</span>{{ clause }}</li>
+            {% endfor %}
+        </ol>
+
+        <p><a href="/" class="link">Upload another document</a></p>
+    </div>
+</body>
+</html>

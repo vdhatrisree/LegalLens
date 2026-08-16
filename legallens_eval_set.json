@@ -1,0 +1,32 @@
+{
+  "description": "LegalLens evaluation set. Each item has a document, a question, the expected answer type, and the ground-truth answer (or null if the correct behavior is to say 'not mentioned').",
+  "documents": ["sample_rental_agreement.pdf", "sample_car_purchase_agreement.pdf", "sample_employment_contract.pdf"],
+  "cases": [
+    {"id": 1, "document": "rental", "question": "What is the monthly rent?", "type": "factual", "expected_answer": "Rs. 18,000"},
+    {"id": 2, "document": "rental", "question": "How much is the security deposit?", "type": "factual", "expected_answer": "Rs. 36,000"},
+    {"id": 3, "document": "rental", "question": "When is rent due each month?", "type": "factual", "expected_answer": "5th of each month"},
+    {"id": 4, "document": "rental", "question": "Does the contract specify a percentage or fixed amount for rent increases?", "type": "gap", "expected_answer": null, "gap_note": "Rent increase is mentioned but no percentage or amount is specified.", "gap_snippet": "rent may be increased"},
+    {"id": 5, "document": "rental", "question": "Is there a specific late fee amount for overdue rent?", "type": "gap", "expected_answer": null, "gap_note": "Late fee exists but amount is left to Landlord's determination.", "gap_snippet": "late fee as determined"},
+    {"id": 6, "document": "rental", "question": "What is the exact numeric notice period required for termination?", "type": "gap", "expected_answer": null, "gap_note": "No specific number of days is stated for termination notice.", "gap_snippet": "providing written notice to the other party"},
+    {"id": 7, "document": "rental", "question": "What is the purchase price of the property?", "type": "not_mentioned", "expected_answer": null},
+    {"id": 8, "document": "rental", "question": "Does this agreement mention a warranty period?", "type": "not_mentioned", "expected_answer": null},
+    {"id": 9, "document": "rental", "question": "Who are the two parties to this agreement?", "type": "factual", "expected_answer": "Rajesh Kumar (Landlord) and Priya Sharma (Tenant)"},
+    {"id": 10, "document": "rental", "question": "Who is responsible for major structural repairs?", "type": "factual", "expected_answer": "Landlord"},
+    {"id": 11, "document": "car", "question": "What is the total purchase price of the vehicle?", "type": "factual", "expected_answer": "Rs. 8,50,000"},
+    {"id": 12, "document": "car", "question": "How much is the booking deposit?", "type": "factual", "expected_answer": "Rs. 50,000"},
+    {"id": 13, "document": "car", "question": "Is there a specific penalty amount for late delivery?", "type": "gap", "expected_answer": null, "gap_note": "Penalty exists but amount is at Dealer's sole discretion.", "gap_snippet": "penalty as determined at dealer"},
+    {"id": 14, "document": "car", "question": "Is there a fixed refund percentage if the buyer cancels?", "type": "gap", "expected_answer": null, "gap_note": "Refund is subject to Dealer's cancellation policy, no percentage given.", "gap_snippet": "refund of the booking deposit shall be subject"},
+    {"id": 15, "document": "car", "question": "What is the monthly rent for this vehicle?", "type": "not_mentioned", "expected_answer": null},
+    {"id": 16, "document": "car", "question": "Does this agreement mention a non-compete clause?", "type": "not_mentioned", "expected_answer": null},
+    {"id": 17, "document": "car", "question": "What vehicle model is being purchased?", "type": "factual", "expected_answer": "Hyundai i20 (Model 2026)"},
+    {"id": 18, "document": "car", "question": "What happens to the trade-in vehicle's value?", "type": "factual", "expected_answer": "Assessed by Dealer and adjusted against purchase price"},
+    {"id": 19, "document": "employment", "question": "What is the annual salary?", "type": "factual", "expected_answer": "Rs. 9,00,000"},
+    {"id": 20, "document": "employment", "question": "What is the employee's job title?", "type": "factual", "expected_answer": "Software Engineer"},
+    {"id": 21, "document": "employment", "question": "Is there a specific number of days for probation notice?", "type": "gap", "expected_answer": null, "gap_note": "Notice during probation is 'shorter' but no exact duration given.", "gap_snippet": "shorter notice as determined"},
+    {"id": 22, "document": "employment", "question": "Is there a specific geographic area defined for the non-compete?", "type": "gap", "expected_answer": null, "gap_note": "Non-compete area is described as 'restricted' without specifics.", "gap_snippet": "restricted period and geographic area"},
+    {"id": 23, "document": "employment", "question": "What is the security deposit for this agreement?", "type": "not_mentioned", "expected_answer": null},
+    {"id": 24, "document": "employment", "question": "Does this contract mention a vehicle warranty?", "type": "not_mentioned", "expected_answer": null},
+    {"id": 25, "document": "employment", "question": "Who owns work product created during employment?", "type": "factual", "expected_answer": "The Company"},
+    {"id": 26, "document": "employment", "question": "Can the company terminate immediately for misconduct?", "type": "factual", "expected_answer": "Yes, without notice for serious misconduct"}
+  ]
+}

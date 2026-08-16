@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LegalLens</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="page">
+        <div class="letterhead">
+            <div class="wordmark">Legal<span>Lens</span></div>
+            <div class="tagline">Contract Risk Analyzer</div>
+        </div>
+
+        <h1>Upload a contract to review</h1>
+        <p style="color: var(--ink-soft); margin-bottom: 24px;">
+            LegalLens reads your document, flags risky clauses, scores overall risk, and lets you ask questions about what you signed.
+        </p>
+
+        <div class="card">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="pdf_file" accept=".pdf">
+                <div class="btn-row">
+                    <button type="submit" class="btn">
+                        <svg class="sparkle" viewBox="0 0 24 24"><path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path></svg>
+                        <span>Analyze Document</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <p><a href="/search" class="link">Search similar clauses across our clause library</a></p>
+    </div>
+</body>
+</html>

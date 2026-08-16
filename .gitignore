@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+
+*.zip
+
+bert_risk_model/
+flan_t5_qa_finetuned_v2/
+flan_t5_rag/
+flan_t5_rental_finetuned_final/
+
+uploads/
+reports/

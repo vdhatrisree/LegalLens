@@ -1,0 +1,14 @@
+flask
+pdfplumber
+joblib
+scikit-learn
+torch
+transformers
+sentence-transformers
+faiss-cpu
+sentencepiece
+fastapi
+uvicorn
+python-multipart
+jinja2
+itsdangerous

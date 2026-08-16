@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap');
+
+:root {
+  --bg: #0B0C17;
+  --bg-elev: #14162A;
+  --text: #EDEDF4;
+  --text-dim: #9B9CBD;
+  --violet: #8B5CF6;
+  --violet-2: #6D28D9;
+  --teal: #2DD4BF;
+  --pink: #F472B6;
+  --pink-bg: rgba(244,114,182,0.12);
+  --teal-bg: rgba(45,212,191,0.12);
+  --border: rgba(255,255,255,0.09);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated glow orbs behind everything */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  z-index: -1;
+  animation: float 12s ease-in-out infinite;
+}
+body::before {
+  background: var(--violet);
+  top: -150px;
+  left: -100px;
+}
+body::after {
+  background: var(--teal);
+  bottom: -150px;
+  right: -100px;
+  animation-delay: -6s;
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(40px, 60px); }
+}
+
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  position: relative;
+}
+
+.letterhead {
+  padding: 32px 0 20px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.letterhead .wordmark {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--violet), var(--teal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.letterhead .tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 36px 0 14px;
+  color: var(--text);
+}
+
+p { color: var(--text-dim); }
+
+.card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+  transition: border-color 300ms ease, transform 300ms ease;
+}
+.card:hover {
+  border-color: rgba(139,92,246,0.4);
+}
+
+/* Risk gauge ring */
+.risk-gauge {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.risk-ring {
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+}
+.risk-ring circle {
+  fill: none;
+  stroke-width: 8;
+}
+.risk-ring .track { stroke: rgba(255,255,255,0.08); }
+.risk-ring .value {
+  stroke: url(#riskGradient);
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 800ms ease;
+}
+.risk-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 500;
+  fill: var(--text);
+}
+.risk-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+/* Redline / flagged clause list */
+.redline-list { list-style: none; padding: 0; margin: 0; }
+.redline-list li {
+  position: relative;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border-left: 3px solid var(--pink);
+  background: var(--pink-bg);
+  border-radius: 0 8px 8px 0;
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.clause-list { list-style: decimal; padding-left: 22px; }
+.clause-list li { margin-bottom: 10px; color: var(--text-dim); }
+
+.tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--teal);
+  color: var(--teal);
+  background: var(--teal-bg);
+  padding: 3px 9px;
+  border-radius: 20px;
+  margin-right: 8px;
+}
+
+input[type=text], input[type=file] {
+  font-family: 'Inter', sans-serif;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  font-size: 0.95rem;
+  width: 100%;
+}
+input[type=text]::placeholder { color: var(--text-dim); }
+input[type=text]:focus, input[type=file]:focus {
+  outline: 2px solid var(--violet);
+  outline-offset: 1px;
+}
+
+.btn {
+  border: none;
+  padding: 0.85em 1.7em;
+  border-radius: 2em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--violet-2), var(--violet));
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: all 350ms ease-in-out;
+  margin-top: 14px;
+  box-shadow: 0 0 0 0 rgba(139,92,246,0);
+}
+.btn .sparkle { fill: white; width: 18px; height: 18px; transition: transform 500ms ease; }
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px 0 rgba(139,92,246,0.55);
+}
+.btn:hover .sparkle { transform: rotate(90deg) scale(1.2); }
+
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.link { color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(45,212,191,0.4); }
+.link:hover { border-color: var(--teal); }
+
+.answer-box {
+  background: var(--teal-bg);
+  border: 1px solid rgba(45,212,191,0.3);
+  padding: 18px 22px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.chat-turn { margin-bottom: 22px; }
+.chat-q {
+  font-weight: 600;
+  color: var(--violet);
+  margin-bottom: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.chat-a {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+.chat-sources {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: 10px;
+}
+.chat-sources ul { margin: 6px 0 0; padding-left: 18px; }

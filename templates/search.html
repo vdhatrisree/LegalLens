@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LegalLens - Search</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="page">
+        <div class="letterhead">
+            <div class="wordmark">LegalLens</div>
+            <div class="tagline">Clause Search</div>
+        </div>
+
+        <h1>Search similar clauses</h1>
+        <p>Ask in plain English — LegalLens finds clauses with matching meaning, not just matching words.</p>
+
+        <div class="card">
+            <form method="post">
+                <input type="text" name="query" value="{{ query }}" placeholder="e.g. Can I cancel this contract?">
+                <div class="btn-row">
+                    <button type="submit" class="btn">
+                        <svg class="sparkle" viewBox="0 0 24 24"><path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path></svg>
+                        <span>Search</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        {% if answer %}
+        <h2>Answer</h2>
+        <div class="answer-box">{{ answer }}</div>
+        {% endif %}
+
+        {% if results %}
+        <h2>Most Similar Clauses</h2>
+        <ul class="redline-list" style="border-left-color: var(--teal); background: var(--teal-bg);">
+            {% for clause in results %}
+            <li>{{ clause }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <p><a href="/" class="link">Back to Home</a></p>
+    </div>
+</body>
+</html>
