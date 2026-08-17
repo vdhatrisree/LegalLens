@@ -1,4 +1,4 @@
-# ⚖️ LegalLens
+<img width="1560" height="932" alt="image" src="https://github.com/user-attachments/assets/8fdd7b03-1d95-43cb-9ec1-e978e9e21497" /># ⚖️ LegalLens
 
 An AI-powered contract intelligence platform that reads legal documents, flags risky clauses, detects missing or ambiguous terms, and answers plain-English questions about what you signed — grounded entirely in the uploaded document. LegalLens combines classical ML, deep learning, semantic search, and retrieval-augmented generation into a single end-to-end pipeline.
 
@@ -146,6 +146,13 @@ LegalLens follows a modular pipeline rather than a single monolithic model:
 - **Gap Detection Layer** — rule-based pattern matching identifies clauses referencing amounts, deadlines, or conditions that are left unspecified
 - **Retrieval Layer** — Sentence-Transformer embeddings + FAISS enable semantic search across clauses
 - **Generation Layer** — a FLAN-T5 model generates natural-language answers, constrained to retrieved context and gated by a similarity threshold to prevent hallucination on out-of-scope questions
+
+
+<img width="1562" height="951" alt="image" src="https://github.com/user-attachments/assets/dd690d0d-2e94-4af5-ab40-a1f6ebc760ad" />
+
+<img width="1542" height="933" alt="image" src="https://github.com/user-attachments/assets/e8b40d67-22ba-48d0-80f7-8f5e66c79ba1" />
+
+<img width="1560" height="932" alt="image" src="https://github.com/user-attachments/assets/b4ff0c68-d4fa-400b-89c4-eaaab9100f5d" />
 
 ## 📊 Evaluation
 
