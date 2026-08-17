@@ -108,13 +108,15 @@ LegalLens
 Clone the repository
 
 ```bash
-git clone https://github.com/<vdhatrisree>/LegalLens.git
+git clone https://github.com/vdhatrisree/LegalLens.git
+cd LegalLens
 ```
 
-Navigate to the project
+Create and activate a virtual environment
 
 ```bash
-cd LegalLens
+python -m venv venv
+venv\Scripts\activate
 ```
 
 Install dependencies
@@ -123,13 +125,48 @@ Install dependencies
 pip install -r requirements.txt
 ```
 
+Download the model weights
+
+The DistilBERT risk classifier and FLAN-T5 generation model are too large for GitHub and are hosted on Kaggle:
+
+🔗 [https://www.kaggle.com/datasets/dhatrivunnava/legal-lens](https://www.kaggle.com/datasets/dhatrivunnava/legal-lens)
+
+Download all 9 files from that dataset, then create two folders in the project root and sort the files in, removing the `__` prefix from each filename:
+
+```
+LegalLens/
+├── bert_risk_model/
+│   ├── config.json
+│   ├── model.safetensors
+│   ├── tokenizer.json
+│   └── tokenizer_config.json
+│
+├── flan_t5_rag/
+│   ├── config.json
+│   ├── generation_config.json
+│   ├── model.safetensors
+│   ├── tokenizer.json
+│   └── tokenizer_config.json
+```
+
+For example, `bert_risk_model__config.json` → `bert_risk_model/config.json`, and `flan_t5_rag__model.safetensors` → `flan_t5_rag/model.safetensors`.
+
+Create the runtime folders
+
+```bash
+mkdir uploads
+mkdir reports
+```
+
 Run the application
 
 ```bash
 uvicorn main:app --reload
 ```
 
-Run with Docker
+Open `http://127.0.0.1:8000` in your browser.
+
+Run with Docker instead
 
 ```bash
 docker build -t legallens .
@@ -147,6 +184,10 @@ LegalLens follows a modular pipeline rather than a single monolithic model:
 - **Retrieval Layer** — Sentence-Transformer embeddings + FAISS enable semantic search across clauses
 - **Generation Layer** — a FLAN-T5 model generates natural-language answers, constrained to retrieved context and gated by a similarity threshold to prevent hallucination on out-of-scope questions
 
+## How the website looks
+<img width="1705" height="957" alt="image" src="https://github.com/user-attachments/assets/6dcf19f9-aee5-4099-982b-d284482d00c7" />
+
+<img width="1693" height="965" alt="image" src="https://github.com/user-attachments/assets/35409461-9f84-446e-a6d0-31677bdbdb01" />
 
 <img width="1562" height="951" alt="image" src="https://github.com/user-attachments/assets/dd690d0d-2e94-4af5-ab40-a1f6ebc760ad" />
 
